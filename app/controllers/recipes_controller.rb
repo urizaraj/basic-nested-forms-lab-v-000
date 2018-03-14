@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
   def strong_params
     params.require(:recipe).permit(
       :title,
-      ingredients_attributes: { :name, :quantity }
+      ingredients_attributes: [:name, :quantity]
     )
   end
 end
