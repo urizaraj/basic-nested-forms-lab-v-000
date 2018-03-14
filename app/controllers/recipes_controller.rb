@@ -14,7 +14,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.create(strong_params)
+    recipe = Recipe.new(strong_params)
+    return render :new unless recipe.save
+    redirect_to recipe_path(recipe)
   end
 
   private
